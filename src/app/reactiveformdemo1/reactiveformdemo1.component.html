@@ -1,0 +1,61 @@
+<h1> Reactive Form Demonstration </h1>
+
+
+<div class="container">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"> Create Employee</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="firstname"> FirstName</label>
+                    <input type="text" id="firstname" class="form-control" formControlName="firstname">
+        
+                </div>
+                <div class="form-group">
+                    <label for="lastname"> LastName</label>
+                    <input type="text" id="lastname" class="form-control" formControlName="lastname">
+        
+                </div>
+                <div class="form-group">
+                    <label for="email"> Email</label>
+                    <input type="text" id="email" class="form-control" formControlName="email">
+        
+                </div>
+                <div class="form-group">
+                    <label for="gender" class="col-sm-2 control-label"> Gedner</label>
+                    <span class="col-sm-4" class="form-check form-chek-inline">
+                    <input type="radio" class="form-check-input" name="gender" id="male"
+                    formControlName="gender" >Male
+                    <input type="radio" class="form-check-input" name="gender" id="female" 
+                    formControlName="gender">Female
+                </span>
+                </div>
+                <div class="form-group">
+                    
+                    <label for="isMarried" class="col-sm-2 control-label"> Marrital status</label>
+                    <span> 
+                    <input type="checkbox" id="isMarried" class="col-sm-2" formControlName="isMarried" >isMarried
+                </span>
+                </div>
+                <div class="form-group">
+                    <label for="country" > Country</label>
+                    <select id="country" name="country"  class="form-control"
+                    formControlName="country">
+                        <option [ngValue]="cty.id" *ngFor="let cty of countrylist">
+                            {{cty.name}}
+                        </option>
+                        </select>
+        
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary"> Register</button>
+            </div>
+       
+        <div>
+             </div>
+        </div>
+    </form>
+</div>

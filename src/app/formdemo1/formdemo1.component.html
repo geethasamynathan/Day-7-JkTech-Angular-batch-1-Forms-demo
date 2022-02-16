@@ -1,0 +1,32 @@
+<h2> Template Driven Forms Demonstration</h2>
+<h3> User Rregistration</h3>
+<form #login="ngForm" (ngSubmit)="onSubmit(login.value)">
+    <div class="form-group">
+        <label for="firstname">Firstname</label>
+        <br>
+        <input type="text" #name="ngModel"  id="firstname" name="firstname"
+        class="form-control" ngModel required minlength="3" maxlength="10">
+        <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger"> -->
+             <div *ngIf="name.errors?.['required']"> Name is required. </div>
+             <div *ngIf="name.errors?.['minlength']"> Minimum char 5 is required. </div>
+             <div *ngIf="name.errors?.['maxlength']"> Minimum char 5 is required. </div>
+    <!-- </div> -->
+    <div class="form-group">
+        <label for="lastname">Lastname</label>
+        <input type="text" id="lastname" name="lastname" class="form-control" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" class="form-control" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" ngModel>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Register">
+    </div>
+<!-- </form> -->
+
+<!-- <p> Form Values :{{login.value  | json}}</p>
+<p> Firstname :{{fname.value  | json}}</p> -->
